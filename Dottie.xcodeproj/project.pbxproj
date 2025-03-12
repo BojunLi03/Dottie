@@ -1,0 +1,671 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		28163B352D8121E10039810C /* Dottie Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 28163B342D8121E10039810C /* Dottie Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		28163B362D8121E10039810C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 28163B282D8121E10039810C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28163B332D8121E10039810C;
+			remoteInfo = "Dottie Watch App";
+		};
+		28163B472D8121E20039810C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 28163B282D8121E10039810C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28163B332D8121E10039810C;
+			remoteInfo = "Dottie Watch App";
+		};
+		28163B512D8121E20039810C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 28163B282D8121E10039810C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28163B332D8121E10039810C;
+			remoteInfo = "Dottie Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		28163B5D2D8121E20039810C /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				28163B352D8121E10039810C /* Dottie Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		28163B2E2D8121E10039810C /* Dottie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dottie.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		28163B342D8121E10039810C /* Dottie Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dottie Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28163B462D8121E20039810C /* Dottie Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dottie Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28163B502D8121E20039810C /* Dottie Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dottie Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		28163B382D8121E10039810C /* Dottie Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Dottie Watch App";
+			sourceTree = "<group>";
+		};
+		28163B492D8121E20039810C /* Dottie Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Dottie Watch AppTests";
+			sourceTree = "<group>";
+		};
+		28163B532D8121E20039810C /* Dottie Watch AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Dottie Watch AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		28163B312D8121E10039810C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28163B432D8121E20039810C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28163B4D2D8121E20039810C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		28163B272D8121E10039810C = {
+			isa = PBXGroup;
+			children = (
+				28163B382D8121E10039810C /* Dottie Watch App */,
+				28163B492D8121E20039810C /* Dottie Watch AppTests */,
+				28163B532D8121E20039810C /* Dottie Watch AppUITests */,
+				28163B2F2D8121E10039810C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		28163B2F2D8121E10039810C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				28163B2E2D8121E10039810C /* Dottie.app */,
+				28163B342D8121E10039810C /* Dottie Watch App.app */,
+				28163B462D8121E20039810C /* Dottie Watch AppTests.xctest */,
+				28163B502D8121E20039810C /* Dottie Watch AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		28163B2D2D8121E10039810C /* Dottie */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28163B5E2D8121E20039810C /* Build configuration list for PBXNativeTarget "Dottie" */;
+			buildPhases = (
+				28163B2C2D8121E10039810C /* Resources */,
+				28163B5D2D8121E20039810C /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				28163B372D8121E10039810C /* PBXTargetDependency */,
+			);
+			name = Dottie;
+			packageProductDependencies = (
+			);
+			productName = Dottie;
+			productReference = 28163B2E2D8121E10039810C /* Dottie.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		28163B332D8121E10039810C /* Dottie Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28163B5A2D8121E20039810C /* Build configuration list for PBXNativeTarget "Dottie Watch App" */;
+			buildPhases = (
+				28163B302D8121E10039810C /* Sources */,
+				28163B312D8121E10039810C /* Frameworks */,
+				28163B322D8121E10039810C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				28163B382D8121E10039810C /* Dottie Watch App */,
+			);
+			name = "Dottie Watch App";
+			packageProductDependencies = (
+			);
+			productName = "Dottie Watch App";
+			productReference = 28163B342D8121E10039810C /* Dottie Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		28163B452D8121E20039810C /* Dottie Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28163B612D8121E20039810C /* Build configuration list for PBXNativeTarget "Dottie Watch AppTests" */;
+			buildPhases = (
+				28163B422D8121E20039810C /* Sources */,
+				28163B432D8121E20039810C /* Frameworks */,
+				28163B442D8121E20039810C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				28163B482D8121E20039810C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				28163B492D8121E20039810C /* Dottie Watch AppTests */,
+			);
+			name = "Dottie Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "Dottie Watch AppTests";
+			productReference = 28163B462D8121E20039810C /* Dottie Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		28163B4F2D8121E20039810C /* Dottie Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28163B642D8121E20039810C /* Build configuration list for PBXNativeTarget "Dottie Watch AppUITests" */;
+			buildPhases = (
+				28163B4C2D8121E20039810C /* Sources */,
+				28163B4D2D8121E20039810C /* Frameworks */,
+				28163B4E2D8121E20039810C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				28163B522D8121E20039810C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				28163B532D8121E20039810C /* Dottie Watch AppUITests */,
+			);
+			name = "Dottie Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "Dottie Watch AppUITests";
+			productReference = 28163B502D8121E20039810C /* Dottie Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		28163B282D8121E10039810C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					28163B2D2D8121E10039810C = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					28163B332D8121E10039810C = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					28163B452D8121E20039810C = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 28163B332D8121E10039810C;
+					};
+					28163B4F2D8121E20039810C = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 28163B332D8121E10039810C;
+					};
+				};
+			};
+			buildConfigurationList = 28163B2B2D8121E10039810C /* Build configuration list for PBXProject "Dottie" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 28163B272D8121E10039810C;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 28163B2F2D8121E10039810C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				28163B2D2D8121E10039810C /* Dottie */,
+				28163B332D8121E10039810C /* Dottie Watch App */,
+				28163B452D8121E20039810C /* Dottie Watch AppTests */,
+				28163B4F2D8121E20039810C /* Dottie Watch AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		28163B2C2D8121E10039810C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28163B322D8121E10039810C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28163B442D8121E20039810C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28163B4E2D8121E20039810C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		28163B302D8121E10039810C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28163B422D8121E20039810C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28163B4C2D8121E20039810C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		28163B372D8121E10039810C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28163B332D8121E10039810C /* Dottie Watch App */;
+			targetProxy = 28163B362D8121E10039810C /* PBXContainerItemProxy */;
+		};
+		28163B482D8121E20039810C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28163B332D8121E10039810C /* Dottie Watch App */;
+			targetProxy = 28163B472D8121E20039810C /* PBXContainerItemProxy */;
+		};
+		28163B522D8121E20039810C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28163B332D8121E10039810C /* Dottie Watch App */;
+			targetProxy = 28163B512D8121E20039810C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		28163B582D8121E20039810C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		28163B592D8121E20039810C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		28163B5B2D8121E20039810C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Dottie Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = USZ4DP682A;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Dottie;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bojunl.Dottie.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		28163B5C2D8121E20039810C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Dottie Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = USZ4DP682A;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Dottie;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bojunl.Dottie.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
+		28163B5F2D8121E20039810C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = USZ4DP682A;
+				INFOPLIST_KEY_CFBundleDisplayName = Dottie;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bojunl.Dottie;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		28163B602D8121E20039810C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = USZ4DP682A;
+				INFOPLIST_KEY_CFBundleDisplayName = Dottie;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bojunl.Dottie;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		28163B622D8121E20039810C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = USZ4DP682A;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "bojunl.Dottie-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dottie Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Dottie Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		28163B632D8121E20039810C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = USZ4DP682A;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "bojunl.Dottie-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dottie Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Dottie Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
+		28163B652D8121E20039810C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = USZ4DP682A;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "bojunl.Dottie-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "Dottie Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		28163B662D8121E20039810C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = USZ4DP682A;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "bojunl.Dottie-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "Dottie Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		28163B2B2D8121E10039810C /* Build configuration list for PBXProject "Dottie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28163B582D8121E20039810C /* Debug */,
+				28163B592D8121E20039810C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28163B5A2D8121E20039810C /* Build configuration list for PBXNativeTarget "Dottie Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28163B5B2D8121E20039810C /* Debug */,
+				28163B5C2D8121E20039810C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28163B5E2D8121E20039810C /* Build configuration list for PBXNativeTarget "Dottie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28163B5F2D8121E20039810C /* Debug */,
+				28163B602D8121E20039810C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28163B612D8121E20039810C /* Build configuration list for PBXNativeTarget "Dottie Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28163B622D8121E20039810C /* Debug */,
+				28163B632D8121E20039810C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28163B642D8121E20039810C /* Build configuration list for PBXNativeTarget "Dottie Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28163B652D8121E20039810C /* Debug */,
+				28163B662D8121E20039810C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 28163B282D8121E10039810C /* Project object */;
+}
