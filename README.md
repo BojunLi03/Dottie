@@ -4,19 +4,20 @@ Dottie Watch App is a WatchOS application designed for diabetes management, spec
 
 ## Features
 
-Connect to Glucose Monitor: A button that will eventually allow users to connect to a glucose monitoring device via Bluetooth (CoreBluetooth integration).
-View Glucose Levels: A button that will display the user's glucose levels, fetched either from connected glucose monitors or through HealthKit (integration planned).
-Project Setup
+- Connect to Glucose Monitor: A button that will eventually allow users to connect to a glucose monitoring device via Bluetooth (CoreBluetooth integration).
+- View Glucose Levels: A button that will display the user's glucose levels, fetched either from connected glucose monitors or through HealthKit (integration planned).
 
-## Requirements
+## Project Setup
+
+### Requirements
 - Xcode 12 or later
 - WatchOS 8.0 or later
 - A physical or simulated Apple Watch device for testing
 
-## Dependencies
+### Dependencies
 - SwiftUI for building the user interface.
 
-## Installation
+### Installation
 1. Clone the repository:
    - `git clone https://github.com/yourusername/Dottie-Watch-App.git`
    - `cd Dottie-Watch-App`
