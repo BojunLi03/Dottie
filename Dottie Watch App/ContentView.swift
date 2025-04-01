@@ -26,7 +26,7 @@ struct ContentView: View {
                 }
                 
                 // NavigationLink to GlucoseGraphView
-                NavigationLink(destination: GlucoseGraphView()) {
+                NavigationLink(destination: GlucoseGraphView(glucoseDataManager: GlucoseDataManager())) {
                     Text("View Glucose Levels")
                         .font(.headline)
                         .frame(maxWidth: .infinity)
