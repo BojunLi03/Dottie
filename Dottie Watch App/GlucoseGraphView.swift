@@ -16,18 +16,37 @@ struct GlucoseGraphView: View {
     @State private var isLoading = true
     
     var body: some View {
-        VStack {
-            // Show loading state while data is being "fetched"
-            if isLoading {
-                ProgressView("Loading Data...")
-                    .progressViewStyle(CircularProgressViewStyle())
-                    .padding()
-            } else {
-                glucoseLevelsGraph
-                    .frame(height: 200)
-                    .padding()
+      VStack (spacing: 8) {
+          // Show loading state while data is being "fetched"
+          if isLoading {
+              ProgressView("Loading Data...")
+                  .progressViewStyle(CircularProgressViewStyle())
+                  .padding()
+          } else {
+            // Current glucose reading
+            HStack {
+                Spacer()
+                if let current = glucoseDataManager.glucoseData.last {
+                    HStack(alignment: .firstTextBaseline, spacing: 4) {
+                        Text("\(Int(current.level))")
+                            .font(.system(size: 36, weight: .bold))
+                            .foregroundColor(.white)
+                        Text("mg/DL")
+                            .font(.footnote)
+                            .foregroundColor(.gray)
+                    }
+                }
             }
+            .padding(.trailing, 8)
+              
+            // Glucose graph
+            glucoseLevelsGraph
+              .frame(height: 180)
+              .padding(.horizontal)
+          }
         }
+        .padding(.top)
+        .background(Color.black)
         .onAppear {
             // Start real-time updates and stop the loading screen once the data starts
             glucoseDataManager.startRealTimeUpdates()
@@ -40,22 +59,20 @@ struct GlucoseGraphView: View {
         }
     }
     
-    var glucoseLevelsGraph: some View {
-        Chart(glucoseDataManager.glucoseData) {
-            LineMark(
-                x: .value("Time", $0.timestamp),
-                y: .value("Glucose Level", $0.level)
-            )
-        }
-        .chartXAxis {
-            AxisMarks(values: .automatic) { value in
-                AxisValueLabel(
-                    content: {
-                        Text(value.as(String.self) ?? "")
-                            .rotationEffect(.degrees(-65)) // Rotate labels to fit better
-                    }
-                )
-            }
-        }
+  var glucoseLevelsGraph: some View {
+    Chart {
+      ForEach(glucoseDataManager.glucoseData) { point in
+        LineMark(
+          x: .value("Time", point.timestamp),
+          y: .value("Glucose Level", point.level)
+        )
+        .foregroundStyle(.white)
+      }
     }
+    .chartXAxis(.hidden)
+    .chartYScale(domain: 60...230)
+    .chartYAxis {
+        AxisMarks(values: .stride(by: 50))
+    }
+  }
 }
