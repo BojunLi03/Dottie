@@ -11,33 +11,36 @@ struct ContentView: View {
     var body: some View {
         // Wrap the main VStack in a NavigationView
         NavigationView {
-            VStack(spacing: 20) {
+            VStack(spacing: 6) {
               Spacer()
               
               // Dottie logo
               Image("dottie_logo")
                   .resizable()
                   .aspectRatio(contentMode: .fit)
-                  .frame(width: 80, height: 80)
-                  .cornerRadius(15)
-                  .padding(.bottom, 1)
+                  .frame(width: 60, height: 60)
+                  .cornerRadius(12)
+                  .padding(.top, 4)
               
               // Welcome text
               Text("Welcome to Dottie!")
-                  .font(.title3)
+                  .font(.subheadline)
                   .fontWeight(.semibold)
                   .foregroundColor(.white)
-                  .padding(.bottom, 3)
+                  .multilineTextAlignment(.center)
+                  .padding(.bottom, 2)
               
               // NavigationLink to GlucoseGraphView
               NavigationLink(destination: GlucoseGraphView(glucoseDataManager: GlucoseDataManager())) {
                   Text("View Glucose Levels")
-                      .font(.headline)
+                      .font(.system(size: 13, weight: .medium))
+                      .minimumScaleFactor(0.7)
+                      .lineLimit(1)
+                      .frame(height: 35)
                       .frame(maxWidth: .infinity)
-                      .padding()
-                      .background(Color.green)
+                      .background(Color("purple"))
                       .foregroundColor(.white)
-                      .cornerRadius(10)
+                      .cornerRadius(8)
               }
               
               // Button to view history
@@ -45,15 +48,17 @@ struct ContentView: View {
                   print("View History")
               }) {
                   Text("View History")
-                      .font(.headline)
-                      .frame(maxWidth: .infinity)
-                      .padding()
-                      .background(Color.blue)
-                      .foregroundColor(.white)
-                      .cornerRadius(10)
+                    .font(.system(size: 13, weight: .medium))
+                    .frame(height: 35)
+                    .frame(maxWidth: .infinity)
+                    .background(Color("gray"))
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
               }
+              
+              Spacer()
             }
-            .padding()
+            .padding(.horizontal, 12)
             //.navigationTitle("Dottie Watch App") // Optional: Add a title for the navigation bar
         }
     }
