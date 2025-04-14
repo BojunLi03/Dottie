@@ -24,6 +24,7 @@ class GlucoseDataManager: ObservableObject {
     
     // Flag to indicate spike
     private var isSpiking = false
+    private var isDropped = false
 
     func startRealTimeUpdates() {
         timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { _ in
@@ -37,6 +38,12 @@ class GlucoseDataManager: ObservableObject {
     
     func simulateSpike() {
         isSpiking = !isSpiking
+        isDropped = false
+    }
+    
+    func simulateDrops(){
+        isDropped = !isDropped
+        isSpiking = false
     }
     
     private let timeLabels: [String] = [
@@ -53,6 +60,9 @@ class GlucoseDataManager: ObservableObject {
         return label
     }
     
+    private var maxValue = 120
+    private var minValue = 90
+    
     private func generateRandomGlucoseData() -> GlucoseData {
         
         let timestamp = getNextTimestamp()
@@ -61,24 +71,37 @@ class GlucoseDataManager: ObservableObject {
         if let last = glucoseData.last {
             let lastLevel = last.level
             let lastWasSpiking = lastLevel >= 140  // Treat as spike if >= 140
+            let lastWasDropped = lastLevel <= 70
             let currentIsSpiking = isSpiking
-
-            if lastWasSpiking == currentIsSpiking {
-                // Same state — keep it within ±10 of the last value
-                let minValue = max(70, lastLevel - 15)
-                let maxValue = min(220, lastLevel + 15)
-                randomLevel = Int.random(in: minValue...maxValue)
+            let currentIsDropped = isDropped
+            
+            
+            if isSpiking {
+                minValue = 140
+                maxValue = 220
+            } else if isDropped {
+                maxValue = 70
+                minValue = 30
             } else {
-                // Transitioning between states — allow a jump
-                if currentIsSpiking {
-                    randomLevel = Int.random(in: 140...200)
-                } else {
-                    randomLevel = Int.random(in: 80...130)
+                maxValue = 120
+                minValue = 90
+            }
+            
+            if lastWasSpiking == currentIsSpiking && lastWasDropped == currentIsDropped{
+                // Same state — keep it within ±15 of the last value
+                minValue = max(minValue, lastLevel - 15)
+                maxValue = min(maxValue, lastLevel + 15)
+                randomLevel = Int.random(in: minValue...maxValue)
+                while randomLevel == lastLevel {
+                    randomLevel = Int.random(in: minValue...maxValue)
                 }
+            } else {
+                // Transitioning between states, allow a jump
+                randomLevel = Int.random(in: minValue...maxValue)
             }
         } else {
             // No previous value — start within normal range
-            randomLevel = Int.random(in: 80...130)
+            randomLevel = Int.random(in: 90...120)
         }
 
         // Clear spike flag after generation
