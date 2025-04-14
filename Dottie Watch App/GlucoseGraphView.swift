@@ -16,48 +16,53 @@ struct GlucoseGraphView: View {
     @State private var isLoading = true
     
     var body: some View {
-      VStack (spacing: 8) {
-          // Show loading state while data is being "fetched"
-          if isLoading {
-              ProgressView("Loading Data...")
-                  .progressViewStyle(CircularProgressViewStyle())
-                  .padding()
-          } else {
-            // Current glucose reading
-            HStack {
-                Spacer()
-                if let current = glucoseDataManager.glucoseData.last {
-                    HStack(alignment: .firstTextBaseline, spacing: 4) {
-                        Text("\(Int(current.level))")
-                            .font(.system(size: 36, weight: .bold))
-                            .foregroundColor(.white)
-                        Text("mg/DL")
-                            .font(.footnote)
-                            .foregroundColor(.gray)
+        VStack(spacing: 8) {
+            if isLoading {
+                ProgressView("Loading Data...")
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .padding()
+            } else {
+                HStack {
+                    Spacer()
+                    if let current = glucoseDataManager.glucoseData.last {
+                        HStack(alignment: .firstTextBaseline, spacing: 4) {
+                            Text("\(Int(current.level))")
+                                .font(.system(size: 36, weight: .bold))
+                                .foregroundColor(.white)
+                            Text("mg/DL")
+                                .font(.footnote)
+                                .foregroundColor(.gray)
+                        }
                     }
                 }
+                .padding(.trailing, 8)
+                HStack{
+                    glucoseLevelsGraph
+                        .frame(height: 180)
+                        .padding(.horizontal)
+
+                    // Spike button
+                    Button("Simulate Spike") {
+                        glucoseDataManager.simulateSpike()
+                    }
+                    .padding()
+                    .background(Color.red.opacity(0.7))
+                    .cornerRadius(8)
+                    .foregroundColor(.white)
+                }
+                
             }
-            .padding(.trailing, 8)
-              
-            // Glucose graph
-            glucoseLevelsGraph
-              .frame(height: 180)
-              .padding(.horizontal)
-          }
         }
         .padding(.top)
         .background(Color.black)
         .onAppear {
-            // Start real-time updates and stop the loading screen once the data starts
             glucoseDataManager.startRealTimeUpdates()
-            
-            // Simulate fetching data and stop loading once data is added
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                // Wait for a couple of seconds before changing the loading state
                 self.isLoading = false
             }
         }
     }
+
     
   var glucoseLevelsGraph: some View {
     Chart {
