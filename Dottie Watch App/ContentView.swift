@@ -9,46 +9,64 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack(spacing: 20) {
-            // Button to connect to glucose monitor
-            Button(action: {
-                connectToGlucoseMonitor()
-            }) {
-                Text("Connect to Glucose Monitor")
-                    .font(.headline)
+        // Wrap the main VStack in a NavigationView
+        NavigationView {
+            VStack(spacing: 6) {
+              Spacer()
+              
+              // Dottie logo
+              Image("dottie_logo")
+                  .resizable()
+                  .aspectRatio(contentMode: .fit)
+                  .frame(width: 60, height: 60)
+                  .cornerRadius(12)
+                  .padding(.top, 4)
+              
+              // Welcome text
+              Text("Welcome to Dottie!")
+                  .font(.subheadline)
+                  .fontWeight(.semibold)
+                  .foregroundColor(.white)
+                  .multilineTextAlignment(.center)
+                  .padding(.bottom, 2)
+              
+              // NavigationLink to GlucoseGraphView
+              NavigationLink(destination: GlucoseGraphView(glucoseDataManager: GlucoseDataManager())) {
+                  Text("View Glucose Levels")
+                      .font(.system(size: 13, weight: .medium))
+                      .minimumScaleFactor(0.7)
+                      .lineLimit(1)
+                      .frame(height: 35)
+                      .frame(maxWidth: .infinity)
+                      .background(Color("purple"))
+                      .foregroundColor(.white)
+                      .cornerRadius(8)
+              }
+              
+              // Button to view history
+              Button(action: {
+                  print("View History")
+              }) {
+                  Text("View History")
+                    .font(.system(size: 13, weight: .medium))
+                    .frame(height: 35)
                     .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.blue)
+                    .background(Color("gray"))
                     .foregroundColor(.white)
-                    .cornerRadius(10)
+                    .cornerRadius(8)
+              }
+              
+              Spacer()
             }
-            
-            // Button to view glucose levels
-            Button(action: {
-                viewGlucoseLevels()
-            }) {
-                Text("View Glucose Levels")
-                    .font(.headline)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.green)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
+            .padding(.horizontal, 12)
+            //.navigationTitle("Dottie Watch App") // Optional: Add a title for the navigation bar
         }
-        .padding()
     }
 
     // Action to simulate connection to glucose monitor
     func connectToGlucoseMonitor() {
         // Future functionality to connect to a glucose monitor
         print("Connect to glucose monitor button tapped.")
-    }
-    
-    // Action to simulate viewing glucose levels
-    func viewGlucoseLevels() {
-        // Future functionality to view glucose levels
-        print("View glucose levels button tapped.")
     }
 }
 
