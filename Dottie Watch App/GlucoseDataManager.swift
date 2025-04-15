@@ -19,8 +19,10 @@ struct GlucoseData: Identifiable {
 class GlucoseDataManager: ObservableObject {
     @Published var glucoseData: [GlucoseData] = []//[.init(timestamp: "03/11 11:00", level: 120)]
     
+    
+    
     private var timer: Timer? = nil
-    private let maxDataPoints = 4
+    private let maxDataPoints = 7
     
     // Flag to indicate spike
     private var isSpiking = false
@@ -28,7 +30,7 @@ class GlucoseDataManager: ObservableObject {
 
     func startRealTimeUpdates() {
         timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { _ in
-            let newData = self.generateRandomGlucoseData()
+            let newData = self.generateGlucoseData()
             self.glucoseData.append(newData)
             if self.glucoseData.count > self.maxDataPoints {
                 self.glucoseData.removeFirst()
@@ -52,7 +54,9 @@ class GlucoseDataManager: ObservableObject {
         "12AM", "1AM", "2AM", "3AM", "4AM", "5AM",
         "6AM", "7AM", "8AM", "9AM", "10AM", "11AM"
     ]
+    private let iy_values: [Int] = [145, 187, 219, 230, 217, 188, 141, 102, 69, 60, 72, 103]
     private var currentTimeIndex: Int = 0
+    private var currentIYIndex: Int = 6
     
     private func getNextTimestamp() -> String {
         let label = timeLabels[currentTimeIndex]
@@ -63,51 +67,12 @@ class GlucoseDataManager: ObservableObject {
     private var maxValue = 120
     private var minValue = 90
     
-    private func generateRandomGlucoseData() -> GlucoseData {
+    private func generateGlucoseData() -> GlucoseData {
         
         let timestamp = getNextTimestamp()
         var randomLevel: Int
-        
-        if let last = glucoseData.last {
-            let lastLevel = last.level
-            let lastWasSpiking = lastLevel >= 140  // Treat as spike if >= 140
-            let lastWasDropped = lastLevel <= 70
-            let currentIsSpiking = isSpiking
-            let currentIsDropped = isDropped
-            
-            
-            if isSpiking {
-                minValue = 140
-                maxValue = 220
-            } else if isDropped {
-                maxValue = 70
-                minValue = 30
-            } else {
-                maxValue = 120
-                minValue = 90
-            }
-            
-            if lastWasSpiking == currentIsSpiking && lastWasDropped == currentIsDropped{
-                // Same state — keep it within ±15 of the last value
-                minValue = max(minValue, lastLevel - 15)
-                maxValue = min(maxValue, lastLevel + 15)
-                randomLevel = Int.random(in: minValue...maxValue)
-                while randomLevel == lastLevel {
-                    randomLevel = Int.random(in: minValue...maxValue)
-                }
-            } else {
-                // Transitioning between states, allow a jump
-                randomLevel = Int.random(in: minValue...maxValue)
-            }
-        } else {
-            // No previous value — start within normal range
-            randomLevel = Int.random(in: 90...120)
-        }
-
-        // Clear spike flag after generation
-        //isSpiking = false
-
-        return GlucoseData(timestamp: timestamp, level: randomLevel)
+        currentIYIndex = (currentIYIndex + 1)
+        return GlucoseData(timestamp: timestamp, level: iy_values[currentIYIndex % iy_values.count])
     }
 
     

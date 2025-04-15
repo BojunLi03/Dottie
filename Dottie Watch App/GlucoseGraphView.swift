@@ -46,7 +46,8 @@ struct GlucoseGraphView: View {
                     }
                 }
                 .padding(.trailing, 8)
-                HStack{
+                //HStack{
+                /*
                     VStack{
                         // Spike button
                         Button("Simulate Spike") {
@@ -64,11 +65,12 @@ struct GlucoseGraphView: View {
                         .background(Color.blue)
                         .cornerRadius(8)
                     }
-                    glucoseLevelsGraph
-                        .frame(height: 180)
-                        .padding(.horizontal)
-                        .padding(.bottom, 32)
-                }
+                 */
+                glucoseLevelsGraph
+                    .frame(height: 180)
+                    .padding(.horizontal)
+                    .padding(.bottom, 32)
+                //}
                 
             }
         }
@@ -100,13 +102,13 @@ struct GlucoseGraphView: View {
                 )
                 .foregroundStyle(
                     // Conditional color based on glucose level
-                    point.level >= 140 ? Color.red : (point.level <= 70 ? Color.blue : Color.white)
+                    point.level >= 140 ? Color.red : (point.level <= 75 ? Color.blue : Color.white)
                 )
                 .clipShape(Circle()) // Makes the point a circle
             }
         }
         .chartXAxis(.hidden)
-        .chartYScale(domain: 0...200) // Set fixed range for the Y-axis
+        .chartYScale(domain: 50...250) // Set fixed range for the Y-axis
         //.chartYAxis {
         //    AxisMarks(values: .stride(by: 50)) // Adjust the Y-axis ticks
         //}
