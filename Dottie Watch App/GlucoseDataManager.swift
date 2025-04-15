@@ -12,8 +12,10 @@ import SwiftUI
 struct GlucoseData: Identifiable {
     var timestamp: String
     var level: Int
+    var verticalMarkerLabel: String = "" // "" = no line, otherwise draw
     var id = UUID()
 }
+
 
 
 class GlucoseDataManager: ObservableObject {
@@ -54,6 +56,7 @@ class GlucoseDataManager: ObservableObject {
         "12AM", "1AM", "2AM", "3AM", "4AM", "5AM",
         "6AM", "7AM", "8AM", "9AM", "10AM", "11AM"
     ]
+    
     private let iy_values: [Int] = [145, 187, 219, 230, 217, 188, 141, 102, 69, 60, 72, 103]
     private var currentTimeIndex: Int = 0
     private var currentIYIndex: Int = 6
@@ -68,12 +71,25 @@ class GlucoseDataManager: ObservableObject {
     private var minValue = 90
     
     private func generateGlucoseData() -> GlucoseData {
-        
         let timestamp = getNextTimestamp()
-        var randomLevel: Int
         currentIYIndex = (currentIYIndex + 1)
-        return GlucoseData(timestamp: timestamp, level: iy_values[currentIYIndex % iy_values.count])
+        let level = iy_values[currentIYIndex % iy_values.count]
+
+        var label = ""
+
+        if level == 145 {
+            label = "E"
+        } else if level == 69 {
+            label = "R"
+        }
+
+        return GlucoseData(
+            timestamp: timestamp,
+            level: level,
+            verticalMarkerLabel: label
+        )
     }
+
 
     
     private func getCurrentTimestamp() -> String {

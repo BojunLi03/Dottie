@@ -88,30 +88,37 @@ struct GlucoseGraphView: View {
     var glucoseLevelsGraph: some View {
         Chart {
             ForEach(glucoseDataManager.glucoseData) { point in
-                // Line mark for glucose level over time
                 LineMark(
                     x: .value("Time", point.timestamp),
                     y: .value("Glucose Level", point.level)
                 )
                 .foregroundStyle(.white)
-                
-                // Point mark for each glucose data point (dot)
+
                 PointMark(
                     x: .value("Time", point.timestamp),
                     y: .value("Glucose Level", point.level)
                 )
                 .foregroundStyle(
-                    // Conditional color based on glucose level
-                    point.level >= 140 ? Color.red : (point.level <= 75 ? Color.blue : Color.white)
+                    point.level >= 140 ? Color.red :
+                    (point.level <= 75 ? Color.blue : Color.white)
                 )
-                .clipShape(Circle()) // Makes the point a circle
+                .clipShape(Circle())
+
+                if !point.verticalMarkerLabel.isEmpty {
+                    RuleMark(x: .value("Time", point.timestamp))
+                        .lineStyle(StrokeStyle(lineWidth: 1, dash: [4]))
+                        .foregroundStyle(.yellow.opacity(0.8))
+                        .annotation(position: .top, alignment: .center) {
+                            Text(point.verticalMarkerLabel)
+                                .font(.caption)
+                                .foregroundColor(.yellow)
+                        }
+                }
             }
         }
         .chartXAxis(.hidden)
-        .chartYScale(domain: 50...250) // Set fixed range for the Y-axis
-        //.chartYAxis {
-        //    AxisMarks(values: .stride(by: 50)) // Adjust the Y-axis ticks
-        //}
+        .chartYScale(domain: 50...250)
     }
+
 
 }
