@@ -17,7 +17,7 @@ struct ContentView: View {
         Image("dottie_logo")
           .resizable()
           .aspectRatio(contentMode: .fit)
-          .frame(width: 60, height: 60)
+          .frame(width: 80, height: 80)
           .cornerRadius(12)
           .padding(.top, 4)
         
