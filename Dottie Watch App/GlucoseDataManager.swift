@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftUI
+import UIKit
 
 struct GlucoseData: Identifiable {
     var timestamp: String
@@ -20,11 +21,12 @@ struct GlucoseData: Identifiable {
 
 class GlucoseDataManager: ObservableObject {
     @Published var glucoseData: [GlucoseData] = []//[.init(timestamp: "03/11 11:00", level: 120)]
-    
+    @Published var glucoseHistory: [GlucoseData] = []
     
     
     private var timer: Timer? = nil
     private let maxDataPoints = 7
+    private let maxHitoryPoints = 24
     
     // Flag to indicate spike
     private var isSpiking = false
@@ -34,8 +36,12 @@ class GlucoseDataManager: ObservableObject {
         timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { _ in
             let newData = self.generateGlucoseData()
             self.glucoseData.append(newData)
+            self.glucoseHistory.append(newData)
             if self.glucoseData.count > self.maxDataPoints {
                 self.glucoseData.removeFirst()
+            }
+            if self.glucoseHistory.count > self.maxHitoryPoints{
+                self.glucoseHistory.removeFirst()
             }
         }
     }
@@ -57,9 +63,9 @@ class GlucoseDataManager: ObservableObject {
         "6AM", "7AM", "8AM", "9AM", "10AM", "11AM"
     ]
     
-    private let iy_values: [Int] = [145, 187, 219, 230, 217, 188, 141, 102, 69, 60, 72, 103]
+    private let iy_values: [Int] = [140, 176, 213, 225, 216, 175, 137, 99, 65, 60, 69, 100]
     private var currentTimeIndex: Int = 0
-    private var currentIYIndex: Int = 6
+    private var currentIYIndex: Int = Int.random(in: 0...10)
     
     private func getNextTimestamp() -> String {
         let label = timeLabels[currentTimeIndex]
@@ -72,14 +78,15 @@ class GlucoseDataManager: ObservableObject {
     
     private func generateGlucoseData() -> GlucoseData {
         let timestamp = getNextTimestamp()
+        let prevLevel = iy_values[currentIYIndex % iy_values.count]
         currentIYIndex = (currentIYIndex + 1)
-        let level = iy_values[currentIYIndex % iy_values.count]
+        let level = iy_values[currentIYIndex % iy_values.count] + Int.random(in:-3...3)
 
         var label = ""
 
-        if level == 145 {
+        if level >= 180 && prevLevel < 180 {
             label = "E"
-        } else if level == 69 {
+        } else if level <= 80 && prevLevel > 80 {
             label = "R"
         }
 
@@ -88,6 +95,26 @@ class GlucoseDataManager: ObservableObject {
             level: level,
             verticalMarkerLabel: label
         )
+    }
+
+    func exportCSVToLocalFile() -> URL? {
+        let fileName = "GlucoseData_Export.csv"
+        let path = FileManager.default.temporaryDirectory.appendingPathComponent(fileName)
+        
+        var csvText = "Timestamp,Glucose Level,Marker\n"
+        for data in glucoseHistory {
+            let line = "\(data.timestamp),\(data.level),\(data.verticalMarkerLabel)\n"
+            csvText.append(line)
+        }
+        
+        do {
+            try csvText.write(to: path, atomically: true, encoding: .utf8)
+            print("CSV saved locally at: \(path)")
+            return path
+        } catch {
+            print("Error writing CSV: \(error)")
+            return nil
+        }
     }
 
 
