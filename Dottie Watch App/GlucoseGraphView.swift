@@ -46,11 +46,12 @@ struct GlucoseGraphView: View {
                     }
                 }
                 .padding(.trailing, 8)
+                .padding(.bottom, 16)
                 
                 glucoseLevelsGraph
-                    .frame(height: 180)
+                    .frame(height: 140)
                     .padding(.horizontal)
-                    .padding(.bottom, 32)
+                    .padding(.bottom, 25)
                 //}
                 
             }
@@ -68,7 +69,6 @@ struct GlucoseGraphView: View {
     
     var glucoseLevelsGraph: some View {
         ZStack{
-            
             Chart {
                 ForEach(glucoseDataManager.glucoseData) { point in
                     LineMark(
@@ -105,7 +105,6 @@ struct GlucoseGraphView: View {
             VStack {
                 Spacer()
                 HStack {
-                    Spacer()
                     Button(action: {
                         print("Export button pressed")
                         _ = glucoseDataManager.exportCSVToLocalFile()
@@ -119,7 +118,10 @@ struct GlucoseGraphView: View {
                     }
                     .padding(.trailing, 8)
                     .padding(.bottom, 8)
+                  
+                    Spacer()
                 }
+                .buttonStyle(.plain)
             }
             .allowsHitTesting(true)
 
