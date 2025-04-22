@@ -16,63 +16,109 @@ struct GlucoseGraphView: View {
     @State private var isLoading = true
     
     var body: some View {
-      VStack (spacing: 8) {
-          // Show loading state while data is being "fetched"
-          if isLoading {
-              ProgressView("Loading Data...")
-                  .progressViewStyle(CircularProgressViewStyle())
-                  .padding()
-          } else {
-            // Current glucose reading
-            HStack {
-                Spacer()
-                if let current = glucoseDataManager.glucoseData.last {
-                    HStack(alignment: .firstTextBaseline, spacing: 4) {
-                        Text("\(Int(current.level))")
-                            .font(.system(size: 36, weight: .bold))
-                            .foregroundColor(.white)
-                        Text("mg/DL")
-                            .font(.footnote)
-                            .foregroundColor(.gray)
+        VStack(spacing: 8) {
+            if isLoading {
+                ProgressView("Loading Data...")
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .padding()
+            } else {
+                HStack {
+                    Spacer()
+                    if let current = glucoseDataManager.glucoseData.last {
+                        HStack(alignment: .firstTextBaseline, spacing: 4) {
+                            Text("\(Int(current.level))")
+                                .font(.system(size: 36, weight: .bold))
+                                .foregroundColor(.white)
+                            Text("mg/DL")
+                                .font(.footnote)
+                                .foregroundColor(.gray)
+                        }
+                    }
+                    else{
+                        HStack(alignment: .firstTextBaseline, spacing: 4) {
+                            Text("--")
+                                .font(.system(size: 36, weight: .bold))
+                                .foregroundColor(.white)
+                            Text("mg/DL")
+                                .font(.footnote)
+                                .foregroundColor(.gray)
+                        }
                     }
                 }
+                .padding(.trailing, 8)
+                //HStack{
+                /*
+                    VStack{
+                        // Spike button
+                        Button("Simulate Spike") {
+                            glucoseDataManager.simulateSpike()
+                        }
+                        .padding()
+                        .background(Color.red)
+                        .cornerRadius(8)
+                        
+                        // Spike button
+                        Button("Simulate Drop") {
+                            glucoseDataManager.simulateDrops()
+                        }
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(8)
+                    }
+                 */
+                glucoseLevelsGraph
+                    .frame(height: 180)
+                    .padding(.horizontal)
+                    .padding(.bottom, 32)
+                //}
+                
             }
-            .padding(.trailing, 8)
-              
-            // Glucose graph
-            glucoseLevelsGraph
-              .frame(height: 180)
-              .padding(.horizontal)
-          }
         }
         .padding(.top)
         .background(Color.black)
         .onAppear {
-            // Start real-time updates and stop the loading screen once the data starts
             glucoseDataManager.startRealTimeUpdates()
-            
-            // Simulate fetching data and stop loading once data is added
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                // Wait for a couple of seconds before changing the loading state
                 self.isLoading = false
             }
         }
     }
+
     
-  var glucoseLevelsGraph: some View {
-    Chart {
-      ForEach(glucoseDataManager.glucoseData) { point in
-        LineMark(
-          x: .value("Time", point.timestamp),
-          y: .value("Glucose Level", point.level)
-        )
-        .foregroundStyle(.white)
-      }
+    var glucoseLevelsGraph: some View {
+        Chart {
+            ForEach(glucoseDataManager.glucoseData) { point in
+                LineMark(
+                    x: .value("Time", point.timestamp),
+                    y: .value("Glucose Level", point.level)
+                )
+                .foregroundStyle(.white)
+
+                PointMark(
+                    x: .value("Time", point.timestamp),
+                    y: .value("Glucose Level", point.level)
+                )
+                .foregroundStyle(
+                    point.level >= 140 ? Color.red :
+                    (point.level <= 75 ? Color.blue : Color.white)
+                )
+                .clipShape(Circle())
+
+                if !point.verticalMarkerLabel.isEmpty {
+                    RuleMark(x: .value("Time", point.timestamp))
+                        .lineStyle(StrokeStyle(lineWidth: 1, dash: [4]))
+                        .foregroundStyle(.yellow.opacity(0.8))
+                        .annotation(position: .top, alignment: .center) {
+                            Text(point.verticalMarkerLabel)
+                                .font(.caption)
+                                .foregroundColor(.yellow)
+                        }
+                }
+            }
+        }
+        .chartXAxis(.hidden)
+        .chartYScale(domain: 50...250)
     }
-    .chartXAxis(.hidden)
-    .chartYScale(domain: 60...230)
-    .chartYAxis {
-        AxisMarks(values: .stride(by: 50))
-    }
-  }
+
+
 }
