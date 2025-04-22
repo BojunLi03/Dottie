@@ -86,38 +86,65 @@ struct GlucoseGraphView: View {
 
     
     var glucoseLevelsGraph: some View {
-        Chart {
-            ForEach(glucoseDataManager.glucoseData) { point in
-                LineMark(
-                    x: .value("Time", point.timestamp),
-                    y: .value("Glucose Level", point.level)
-                )
-                .foregroundStyle(.white)
+        ZStack{
+            
+            Chart {
+                ForEach(glucoseDataManager.glucoseData) { point in
+                    LineMark(
+                        x: .value("Time", point.timestamp),
+                        y: .value("Glucose Level", point.level)
+                    )
+                    .foregroundStyle(.white)
 
-                PointMark(
-                    x: .value("Time", point.timestamp),
-                    y: .value("Glucose Level", point.level)
-                )
-                .foregroundStyle(
-                    point.level >= 140 ? Color.red :
-                    (point.level <= 75 ? Color.blue : Color.white)
-                )
-                .clipShape(Circle())
+                    PointMark(
+                        x: .value("Time", point.timestamp),
+                        y: .value("Glucose Level", point.level)
+                    )
+                    .foregroundStyle(
+                        point.level >= 140 ? Color.red :
+                        (point.level <= 75 ? Color.blue : Color.white)
+                    )
+                    .clipShape(Circle())
 
-                if !point.verticalMarkerLabel.isEmpty {
-                    RuleMark(x: .value("Time", point.timestamp))
-                        .lineStyle(StrokeStyle(lineWidth: 1, dash: [4]))
-                        .foregroundStyle(.yellow.opacity(0.8))
-                        .annotation(position: .top, alignment: .center) {
-                            Text(point.verticalMarkerLabel)
-                                .font(.caption)
-                                .foregroundColor(.yellow)
-                        }
+                    if !point.verticalMarkerLabel.isEmpty {
+                        RuleMark(x: .value("Time", point.timestamp))
+                            .lineStyle(StrokeStyle(lineWidth: 1, dash: [4]))
+                            .foregroundStyle(.yellow.opacity(0.8))
+                            .annotation(position: .top, alignment: .center) {
+                                Text(point.verticalMarkerLabel)
+                                    .font(.caption)
+                                    .foregroundColor(.yellow)
+                            }
+                    }
                 }
             }
+            .chartXAxis(.hidden)
+            .chartYScale(domain: 0...225)
+            
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        print("Export button pressed")
+                        _ = glucoseDataManager.exportCSVToLocalFile()
+                    }) {
+                        Image(systemName: "square.and.arrow.up")
+                            .foregroundColor(.black)
+                            .padding(8)
+                            .background(Color.yellow)
+                            .clipShape(Circle())
+                            .shadow(radius: 3)
+                    }
+                    .padding(.trailing, 8)
+                    .padding(.bottom, 8)
+                }
+            }
+            .allowsHitTesting(true)
+
         }
-        .chartXAxis(.hidden)
-        .chartYScale(domain: 50...250)
+        
+        
     }
 
 
