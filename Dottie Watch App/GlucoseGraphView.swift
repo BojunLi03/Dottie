@@ -46,26 +46,7 @@ struct GlucoseGraphView: View {
                     }
                 }
                 .padding(.trailing, 8)
-                //HStack{
-                /*
-                    VStack{
-                        // Spike button
-                        Button("Simulate Spike") {
-                            glucoseDataManager.simulateSpike()
-                        }
-                        .padding()
-                        .background(Color.red)
-                        .cornerRadius(8)
-                        
-                        // Spike button
-                        Button("Simulate Drop") {
-                            glucoseDataManager.simulateDrops()
-                        }
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(8)
-                    }
-                 */
+                
                 glucoseLevelsGraph
                     .frame(height: 180)
                     .padding(.horizontal)
@@ -101,8 +82,8 @@ struct GlucoseGraphView: View {
                         y: .value("Glucose Level", point.level)
                     )
                     .foregroundStyle(
-                        point.level >= 140 ? Color.red :
-                        (point.level <= 75 ? Color.blue : Color.white)
+                        point.level >= 180 ? Color.red :
+                        (point.level <= 80 ? Color.blue : Color.white)
                     )
                     .clipShape(Circle())
 

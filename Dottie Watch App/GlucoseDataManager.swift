@@ -63,7 +63,7 @@ class GlucoseDataManager: ObservableObject {
         "6AM", "7AM", "8AM", "9AM", "10AM", "11AM"
     ]
     
-    private let iy_values: [Int] = [120, 162, 193, 205, 196, 160, 117, 79, 45, 40, 49, 80]
+    private let iy_values: [Int] = [140, 176, 213, 225, 216, 175, 137, 99, 65, 60, 69, 100]
     private var currentTimeIndex: Int = 0
     private var currentIYIndex: Int = Int.random(in: 0...10)
     
@@ -84,9 +84,9 @@ class GlucoseDataManager: ObservableObject {
 
         var label = ""
 
-        if level >= 140 && prevLevel < 140 {
+        if level >= 180 && prevLevel < 180 {
             label = "E"
-        } else if level <= 75 && prevLevel > 75 {
+        } else if level <= 80 && prevLevel > 80 {
             label = "R"
         }
 
