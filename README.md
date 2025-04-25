@@ -1,6 +1,9 @@
 # Dottie Watch App
 
-Dottie Watch App is a WatchOS application designed for diabetes management, specifically for connecting to a glucose monitor and viewing glucose levels. The app provides an intuitive and user-friendly interface for users to interact with their health data. While the current version is in its early stages, with button functionality wired up for future expansion, the app is designed to easily integrate with glucose monitoring devices and display relevant health metrics in the future.
+Dottie Watch App is a WatchOS application designed for diabetes management, specifically for connecting to a glucose monitor and viewing glucose levels. The app provides an intuitive and user-friendly interface for users to interact with their health data. The current version is in its early stages, but the app is designed to easily integrate with glucose monitoring devices and display relevant health metrics in future expansions.
+
+## Wireframes
+View wireframes here: https://www.figma.com/proto/J8Kh7w0uP5sZjUmyrtiiLl/Dottie-Wireframes?node-id=37-30&t=EyELJkDKQPI8bOid-1
 
 ## Features
 
