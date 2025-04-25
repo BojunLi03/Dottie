@@ -59,7 +59,7 @@ struct GlucoseGraphView: View {
         .padding(.top)
         .background(Color.black)
         .onAppear {
-            glucoseDataManager.startRealTimeUpdates()
+        //    glucoseDataManager.startRealTimeUpdates()
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.isLoading = false
             }
