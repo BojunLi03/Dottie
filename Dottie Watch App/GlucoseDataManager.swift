@@ -18,9 +18,8 @@ struct GlucoseData: Identifiable {
 }
 
 
-
 class GlucoseDataManager: ObservableObject {
-    @Published var glucoseData: [GlucoseData] = []//[.init(timestamp: "03/11 11:00", level: 120)]
+    @Published var glucoseData: [GlucoseData] = []
     @Published var glucoseHistory: [GlucoseData] = []
     
     

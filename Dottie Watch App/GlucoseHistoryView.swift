@@ -13,7 +13,6 @@ struct GlucoseHistoryView: View {
     var body: some View {
         NavigationView {
             VStack {
-                
                 List(glucoseDataManager.glucoseHistory.reversed()) { data in
                     HStack {
                         VStack(alignment: .leading) {
